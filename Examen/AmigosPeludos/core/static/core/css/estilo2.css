@@ -1,0 +1,202 @@
+/*cuerpo movil*/
+html {
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+header{
+    background-image: url(../IMG/Perro-comiendo-pasto.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+}
+nav{
+    display: flex;
+    flex-direction: column;
+}
+nav a{
+    margin: 5px;
+}
+nav a{
+    text-decoration: none;
+    color: white;
+} 
+a:hover{
+    color: rgb(rgb(134, 134, 134));
+}  
+h3{
+    margin: 16px;
+}
+body{
+    margin: 0%;
+    background-color: rgb(235, 235, 235);
+}
+#sobrenosotros, #suscribirse, #contacto{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+#suscribirse{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#suscribirse a img{
+    max-width: 209px;
+    max-height: 209px;
+}
+footer{
+    background-color: rgb(20, 20, 20);
+}
+#numero{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+}
+/*cuerpo tablet*/
+@media (min-width:1023px){
+    body{
+        background-image:  linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+        )
+        ,url(../IMG/pasto.jpg);
+        background-size: cover;
+        background-repeat: repeat-x;
+    }
+    nav{
+        justify-content: center;
+        text-align: center;
+        flex-direction: row;
+    }
+    nav a{
+        margin: 30px;
+    }
+    #cuerpo{
+        margin: auto;
+        min-height: 800px;
+        max-width: 140vh;
+        background-color: rgb(235, 235, 235);
+    }
+    #suscribirse{
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    #numero{
+        margin-left: 300px;
+        margin-right: 300px;
+    }
+    #agregarpro{
+        min-height: 300px;
+    }
+}
+/*cuerpo pc*/
+@media (min-width:1025px){
+    body{
+        justify-content: center;
+    }
+    header{
+        justify-content: space-between;
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-top: 80px;
+        padding-bottom: 40px;
+        flex-direction: row;
+    }
+    nav a{
+        font-size: 1.5rem;
+    }
+    #cuerpo{
+        margin: auto;        
+        max-width: 150vh;
+    }
+    #sobrenosotros{
+        display: flex;
+        text-align: center;
+    }
+    #sobrenosotros p{
+        max-width: 120vh;
+        margin: auto;
+    }
+    #suscribirse{
+        flex-direction: row;  
+        justify-content: center;  
+        margin-bottom: 0;
+    }
+    #suscribirse div{
+        max-width: 33vh;
+        margin: 30px;
+    }
+}
+/*texto*/
+header h1{
+    color: white;
+}
+#cuerpo h1{
+    margin:0;
+}
+footer div, footer p{
+    color: white;
+}
+/*producto*/
+#pr{
+    margin: 5px;
+}
+.producto div img{
+    max-width: 200px;
+    max-height: 200px;
+    
+}
+.producto{
+    padding: 2em;
+    background-color: #fafafa;
+    margin: 1rem;
+    border: 2px solid #ccc;
+    text-align: center;
+}
+
+.producto h1{
+    text-align: center;
+    margin-right: 50px;
+}
+.producto .precio{
+    text-align: right;
+}
+
+#agregarpro{
+    min-height: 460px;
+}
+#agregarpro textarea{
+    min-height: 200px;
+}
+#agregarpro div{
+    margin: 10px;
+}
+#m, .conreg h2{
+    margin: 0;
+}
+#cuerpo h4{
+    margin: 0%;
+}
+#agregarcat,#modpro,#menu,#agregarpro div,.conlog,.conreg{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+#menu a{
+    text-decoration: none;
+    color: white;
+}
+.btn1{
+    margin-right: 30px;
+}
+
+.Form{
+    justify-content: center;
+    padding:0%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <title>AGREGAR CATEGORIA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="{% static 'core/css/estilo2.css'%}">
+</head>
+
+<header>
+    <div>
+        <h1 class="size">AMIGOS PELUDOS</h1>
+    </div>
+    <div id="menu">
+      <nav>
+        <a class="none" href="{% url 'home' %}">INICIO</a>
+        <a class="none" href="{% url 'home' %}">SOBRE NOSOTROS</a>
+        <a class="none" href="#contacto">CONTACTO</a>
+      </nav>
+      <div>
+        <!--Si el usuario esta o no conectado-->
+        {% if user.is_authenticated %}
+        <a class="btn" href="{% url 'logout' %}">Cerrar sesion</a>
+
+        {% else %}
+
+        <a class="btn1" href="{% url 'login' %}">Inicia Sesion</a>
+        <a class="btn" href="{% url 'Registro' %}">Registrate</a>
+
+        {% endif %}
+      </div>
+    </div>
+</header>
+
+<body>
+  <section id="cuerpo">
+    <!--Formulario para agregar-->
+    <form action="" method="post" enctype="multipart/form-data">
+          <h4>Agregar producto</h4>
+          <form class="needs-validation" novalidate="">
+            {% csrf_token %}
+            <div id="agregarcat">
+                <label for="idCategoria">Id categoria</label>
+                <input type="text" name="idCategoria" id="idCategoria" placeholder="Ingrese id" value="" required="">
+  
+                <label for="NombreCategoria">Nombre Categoria</label>
+                <input type="text" name="NombreCategoria" id="NombreCategoria" placeholder="" value="" required="">
+            </div>
+  
+            <hr>
+            <button type="submit">Agregar</button>
+          </form>
+    </form>
+        <a href="{% url 'AgregarPro' %}">Agregar Productos</a>
+        <a href="{% url 'AgregarCat' %}">Agregar Categoria</a>
+    </section>
+    <footer id="contacto">
+
+        <div>
+            <p>¿tienes dudas o quieres preguntar por algún producto? ¡Puedes contactarte con nosotros en estos números o en nuestras redes sociales!</p>
+            <section id="numero">
+                <div>+569-32823020</div>
+                <div>+569-31288037</div>
+            </section>
+        </div>
+    </footer>
+</body>
+</html>

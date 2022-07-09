@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  {% load static %}
+    <title>Productos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="{% static 'core/css/estilo2.css'%}">
+    
+</head>
+<header>
+  <div>
+      <h1 class="size">AMIGOS PELUDOS</h1>
+  </div>
+  <div id="menu">
+    <nav>
+      <a class="none" href="{% url 'home' %}">INICIO</a>
+      <a class="none" href="{% url 'home' %}">SOBRE NOSOTROS</a>
+      <a class="none" href="#contacto">CONTACTO</a>
+    </nav>
+    <div>
+      <!--Si el usuario esta o no conectado-->
+      {% if user.is_authenticated %}
+      <a class="btn" href="{% url 'logout' %}">Cerrar sesion</a>
+
+      {% else %}
+
+      <a class="btn1" href="{% url 'login' %}">Inicia Sesion</a>
+      <a class="btn " href="{% url 'Registro' %}">Registrate</a>
+
+      {% endif %}
+    </div>
+  </div>
+</header>
+<body>
+    <section id="cuerpo">
+      <section id="pr">
+        {% if request.user.is_staff %}
+        <a href="{% url 'AgregarPro' %}">Ingresa un producto</a>
+        <a href="{% url 'AgregarCat' %}">Ingresa una categoria</a>
+        {% endif %}
+        <div="container-pro">
+          <!--Loop para crear productos-->
+          {% for auxPr in producto %}
+            <div class="producto">
+
+              <h1>Nombre: {{auxPr.nombre}}</h1>
+              
+              <p>Categoria: {{auxPr.categoria}}</p>
+              <p class="descripcion">Descripcion: {{auxPr.descripcion}}</p>
+              {% if auxPr.imagen %}
+                <div><img src="{{ auxPr.imagen.url }}" alt="no disponible" width="250px" height="150px"></div>
+              {% endif %}
+              <p class="precio">Precio: ${{auxPr.precio}}</p>
+
+              {% if request.user.is_staff %}
+              <a href="{% url 'del_producto' auxPr.id %}">Eliminar Producto</a>
+              <a href="{% url 'ModificarPro' auxPr.id %}">Modificar Producto</a>
+              {% endif %}
+              
+            </div>
+            <hr>
+          {% endfor %}
+        </div>
+      </section>
+    </section>
+  <!--FOOTER-->
+    <footer id="contacto">
+
+      <div>
+          <p>¿tienes dudas o quieres preguntar por algún producto? ¡Puedes contactarte con nosotros en estos números o en nuestras redes sociales!</p>
+          <section id="numero">
+              <div>+569-32823020</div>
+              <div>+569-31288037</div>
+          </section>
+      </div>
+    </footer>
+  
+   
+</body>
+</html>
