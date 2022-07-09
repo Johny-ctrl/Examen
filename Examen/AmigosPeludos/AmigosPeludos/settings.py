@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'core',
     'rest_AmigosP',
     'rest_framework.authtoken',
+    'cart',
 ]
 
 MIDDLEWARE = [
