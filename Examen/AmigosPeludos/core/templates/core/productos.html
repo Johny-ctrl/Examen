@@ -23,7 +23,6 @@
       <!--Si el usuario esta o no conectado-->
       {% if user.is_authenticated %}
       <a class="btn" href="{% url 'logout' %}">Cerrar sesion</a>
-
       {% else %}
 
       <a class="btn1" href="{% url 'login' %}">Inicia Sesion</a>
