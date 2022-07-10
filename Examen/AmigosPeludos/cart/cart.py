@@ -53,3 +53,7 @@ class Cart:
                 break
             else:
                 print("Producto no existe en tu carro de compras")
+    #limpiar
+    def clear(self):
+        self.session["cart"] = {}
+        self.session.modified = True
