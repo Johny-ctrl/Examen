@@ -55,6 +55,9 @@ footer{
     justify-content: space-between;
     margin: 30px;
 }
+#contacto{
+    padding: 50px;
+}
 /*cuerpo tablet*/
 @media (min-width:1023px){
     body{
