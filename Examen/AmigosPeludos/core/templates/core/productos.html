@@ -23,6 +23,7 @@
       <!--Si el usuario esta o no conectado-->
       {% if user.is_authenticated %}
       <a class="btn" href="{% url 'logout' %}">Cerrar sesion</a>
+
       {% else %}
 
       <a class="btn1" href="{% url 'login' %}">Inicia Sesion</a>
@@ -36,30 +37,59 @@
     <section id="cuerpo">
       <section id="pr">
         {% if request.user.is_staff %}
-        <a href="{% url 'AgregarPro' %}">Ingresa un producto</a>
-        <a href="{% url 'AgregarCat' %}">Ingresa una categoria</a>
+        <div class="btn-agr">
+          <a href="{% url 'AgregarPro' %}">Ingresa un producto</a>
+        </div>
+        <div class="btn-agr">
+          <a href="{% url 'AgregarCat' %}">Ingresa una categoria</a>
+        </div>
         {% endif %}
-        <div="container-pro">
+        <div>
           <!--Loop para crear productos-->
           {% for auxPr in producto %}
             <div class="producto">
 
-              <h1>Nombre: {{auxPr.nombre}}</h1>
-              
-              <p>Categoria: {{auxPr.categoria}}</p>
-              <p class="descripcion">Descripcion: {{auxPr.descripcion}}</p>
-              {% if auxPr.imagen %}
+              <!--imagen-->
+              <div class="img-pro">
+                {% if auxPr.imagen %}
                 <div><img src="{{ auxPr.imagen.url }}" alt="no disponible" width="250px" height="150px"></div>
-              {% endif %}
-              <p class="precio">Precio: ${{auxPr.precio}}</p>
+                {% endif %}
+              </div>
 
-              {% if request.user.is_staff %}
-              <a href="{% url 'del_producto' auxPr.id %}">Eliminar Producto</a>
-              <a href="{% url 'ModificarPro' auxPr.id %}">Modificar Producto</a>
-              {% endif %}
+              <!--informacion-->
+              <div class="info-pro">
+                <h1>Nombre: {{auxPr.nombre}}</h1>
+                <p>Categoria: {{auxPr.categoria}}</p>
+              </div>
+
+              <!--descripcion-->
+              <div class="descripcion"> 
+                Descripcion:
+                <p>{{auxPr.descripcion}}</p>
+              </div>
+
+              <!--precio y opciones-->
+              <div class="producto-2">
+
+                <div id="precio">
+                  <p class="precio">Precio: ${{auxPr.precio}}</p>
+                </div>
+
+                <div class="opciones">
+                  {% if request.user.is_staff %}
+                  <div>
+                    <a href="{% url 'del_producto' auxPr.id %}">Eliminar Producto</a>
+                  </div>
+
+                  <div>
+                    <a href="{% url 'ModificarPro' auxPr.id %}">Modificar Producto</a>
+                  </div>
+                  {% endif %}
+                </div>
+
+              </div>
               
             </div>
-            <hr>
           {% endfor %}
         </div>
       </section>
