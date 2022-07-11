@@ -1,7 +1,8 @@
-from django.shortcuts import render
+
 
 # Create your views here.
 from django.shortcuts import render
+from core.cart import Cart
 from core.form import FormularioPro, FormularioCat,CreacionDeUsuario,Login,User
 from .models import Producto,Categoria
 from rest_AmigosP.viewslogin import login
@@ -134,5 +135,40 @@ def Admin(request):
 
     return render(request, 'core/VistaAdmin', contexto)
 
+#definir view carro
+def Carro(request):
+    #obtiene los productos
+    productos = Producto.objects.all()
+    contexto = {
+        'producto' : productos
+    }
+    return render(request, 'core/Carro.html', contexto )
+
+#agregar al carrito
+def agrega_carro(request, id):
+    cart = Cart(request)
+    producto = Producto.objects.get(id = id)
+    cart.add(producto)
+    return redirect(to = "Carro")
+
+#elimiar del carro
+def del_carro(request, id):
+    cart = Cart(request)
+    producto = Producto.objects.get(id = id)
+    cart.remove(producto)
+    return redirect(to = "Carro")
+
+#restar
+def res_carro(request, id):
+    cart = Cart(request)
+    producto = Producto.objects.get(id = id)
+    cart.decrement(producto)
+    return redirect(to = "Carro")
+
+#limpiar carro
+def limpiar_carro(request):
+    cart = Cart(request)
+    cart.clear()
+    return redirect("Carro")
 
 
