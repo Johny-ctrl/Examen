@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.db import models
 from tkinter import CASCADE
 from django.contrib.auth.models import User, PermissionsMixin
@@ -24,6 +25,10 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.id
-
+    
+    class Meta:
+        db_table = 'producto'
+        verbose_name = 'producto'
+        verbose_name_plural = 'productos'
 
 # Create your models here.

@@ -1,4 +1,6 @@
 #Definir variable cart
+from .models import Producto
+
 class Cart:
     def __init__(self, request):
         self.request = request
@@ -14,14 +16,16 @@ class Cart:
         id = str(producto.id)
         if id not in self.cart.keys():
             self.cart[id]={
-                "producto_id": producto.id,
+                "producto_id":producto.id ,
                 "nombre": producto.nombre,
-                "Venta": producto.precio,
+                "precio": producto.precio,
+                "descripcion": producto.descripcion,
+                "imagen": producto.imagen,
                 "cantidad": 1,
             }
         else:
             self.cart[id]["cantidad"] += 1
-            self.cart[id]["Venta"] += producto.precio
+            self.cart[id]["precio"] += producto.precio
         self.save()  
     #definir guardar
     def save(self):
@@ -42,7 +46,7 @@ class Cart:
         id = str(producto.id)
         if id in self.cart.keys():
             self.cart[id]["cantidad"] -= 1
-            self.cart[id]["Venta"] -= producto.precio
+            self.cart[id]["precio"] -= producto
             if self.cart[id]["cantidad"] <=0: self.remove(producto)
             self.save()
             

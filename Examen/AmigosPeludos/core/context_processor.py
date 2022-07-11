@@ -1,9 +1,9 @@
 def total_venta(request):
     total = 0
-    if request.user.is_authenticated:
-        if "cart" in request.session.keys():
-            for key, value in request.session["cart"].items():
-                total += int(value["precio"])
-    return {"total_carrito": total}
+    request.user.is_authenticated and 'cart' in request.session
+    if "cart" in request.session.keys():
+        for key, value in request.session["cart"].items():
+            total += value["precio"]
+    return {"total_venta": total}
 
     

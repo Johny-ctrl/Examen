@@ -1,4 +1,4 @@
-from unicodedata import name
+
 from django.urls import path
 from .views import home, Productos, AgregarCat, AgregarPro,Registro,del_producto,ModificarPro,Admin,Carro,agrega_carro,del_carro,res_carro,limpiar_carro
 
