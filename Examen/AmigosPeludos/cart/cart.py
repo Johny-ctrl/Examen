@@ -12,20 +12,19 @@ class Cart:
         self.cart = cart
     #creacion del producto en el carro
     def add(self, producto):
-        if str(producto.id) not in self.cart.keys():
-            self.cart[producto.id] = {
+        id = str(producto.id)
+        if id not in self.cart.keys():
+            self.cart[id] = {
                 "producto_id": producto.id,
                 "nombre": producto.name,
-                "cantidad": 1,
-                "precio": str(producto.precio),
-                "imagen":producto.imagen.url  
+                "precio": producto.precio,
+                "imagen":producto.imagen.url,
+                "cantidad": 1
                 }    
         #Si el producto ya existe
         else:
-            for key , value in  self.cart.items():
-                if key == str(producto.id) :
-                    value["quantity"] = value["quantity"] + 1    
-                    break
+            self.cart[id]["cantidad"] += 1
+            self.cart[id]["Precio"] += producto.precio
 
         self.save()    
     #definir guardar
