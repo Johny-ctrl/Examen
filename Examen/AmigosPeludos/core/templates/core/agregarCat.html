@@ -38,10 +38,11 @@
   <section id="cuerpo">
     <!--Formulario para agregar-->
     <form action="" method="post" enctype="multipart/form-data">
-          <h4>Agregar producto</h4>
+          <h4>Agregar categoria</h4>
           <form class="needs-validation" novalidate="">
             {% csrf_token %}
             <div id="agregarcat">
+                
                 <label for="idCategoria">Id categoria</label>
                 <input type="text" name="idCategoria" id="idCategoria" placeholder="Ingrese id" value="" required="">
   
@@ -50,12 +51,12 @@
             </div>
   
             <hr>
-            <button type="submit">Agregar</button>
+            <div class="btn-agr-2">              
+              <button type="submit">Agregar</button>
+            </div>
           </form>
     </form>
-        <a href="{% url 'AgregarPro' %}">Agregar Productos</a>
-        <a href="{% url 'AgregarCat' %}">Agregar Categoria</a>
-    </section>
+  </section>
     <footer id="contacto">
 
         <div>
