@@ -19,9 +19,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic.base import TemplateView
 
 # Create your views here.
-class IndexView(TemplateView):
-    template_name = 'core/index.html'
-    
+
 def home(request):
 
     return render(request, 'core/index.html')
