@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from telnetlib import AUTHENTICATION
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'rest_AmigosP',
     'rest_framework.authtoken',
     'cart',
+    'social.apps.django_app.default',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +150,14 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #        }
 #}
+
+#iNICIAR SESION CON FACEBOOK
+AUTHENTICATION_BACKENDS = (
+    'social.backends.twitter.TwitterOAuth',
+    'django.contrib.auth.backends.ModelBackend',
+)
+#REDIRECCCION DESPUES DE INICIO
+SOCIAL_AUTH_LOGIN_URL = '/'
+
+SOCIAL_AUTH_TWITTER_KEY = '7YihWoEkBdgjtXBR0QwUp35ZF'
+SOCIAL_AUTH_TWITTER_SECRET = 'H445H61zwF7ROv9KMGDetmrya3aCB84HAiI8XigWddIbPa1Imf'

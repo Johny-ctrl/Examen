@@ -55,6 +55,7 @@
               </h6>
               {% endif %}
               <input type="submit" value="Entrar">
+              <a href="{% url 'social:begin' 'twitter' %}?next={{ request.path }}">O inicia con twitter</a>
               <p>© 2017–2022</p>
             </form>
           </main>
