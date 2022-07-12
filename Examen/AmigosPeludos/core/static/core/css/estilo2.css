@@ -255,7 +255,11 @@ footer div, footer p{
 .btn-agr-2{
     text-align: center;
 }
+#productos{
+    display: flex;
+}
 .cont-pro{
-    max-width: 200px;
+    max-width: 500px;
     max-height: 200px;
+    text-decoration: none;
 }
