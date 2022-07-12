@@ -43,18 +43,15 @@
         
         </section>
         <section id="productos">
-
-            <div>
-                <h1>Nombre: {{auxPr.nombre}}</h1>
-                <p>Categoria: {{auxPr.categoria}}</p>
-                <p class="descripcion">Descripcion: {{auxPr.descripcion}}</p>
-                {% if auxPr.imagen %}
-                <div><img src="{{ auxPr.imagen.url }}" alt="no disponible" width="250px" height="150px"></div>
-                {% endif %}
-                <p class="precio">Precio: ${{auxPr.precio}}</p>
+            
+            <div class="cont-pro">
+                <img src="{% static 'core/img/PRODUCTO-FINAL.png'%}" alt="no me funciono :c">
             </div>
 
-            <a href="{% url 'Productos'%}">Haz click aqui para ver los productos</a>
+            <div class="cont-pro">
+                <a href="{% url 'Productos'%}">VER M&Aacute;S PRODUCTOS+</a>
+            </div>
+
         </section>
         <section id="suscribirse">
 

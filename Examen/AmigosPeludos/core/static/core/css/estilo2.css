@@ -255,3 +255,7 @@ footer div, footer p{
 .btn-agr-2{
     text-align: center;
 }
+.cont-pro{
+    max-width: 200px;
+    max-height: 200px;
+}
