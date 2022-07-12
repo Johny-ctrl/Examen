@@ -172,3 +172,6 @@ def limpiar_carro(request):
     return redirect("Carro")
 
 
+def Suscribete(request):
+
+    return render(request , 'core/Suscribete.html')
